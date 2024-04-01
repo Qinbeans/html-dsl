@@ -1,6 +1,7 @@
 import gleam/io
 import types/html.{
-  Element, body, button, form, h1, head, html, input, label, li, title, ul,
+  Component, Element, Html, body, button, form, h1, head, html, input, label, li,
+  meta, title, ul,
 }
 import types/class.{Class}
 import types/id.{Id}
@@ -10,7 +11,10 @@ pub fn main() {
   let root =
     html(
       "en",
-      head(title("Hello, Gleam!"))
+      head([
+          title("Hello, Gleam!"),
+          meta("viewport", "width=device-width, initial-scale=1"),
+        ])
         <> body(
           Id("main-content"),
           Class("grid"),
@@ -28,6 +32,8 @@ pub fn main() {
             ]),
         ),
     )
-  let html.Html(html) = root
-  io.println_error(html)
+  case root {
+    Html(html) -> io.println_error(html)
+    Component(component) -> io.println_error(component)
+  }
 }

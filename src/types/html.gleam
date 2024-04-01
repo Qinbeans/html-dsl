@@ -20,6 +20,15 @@ pub type Input {
 
 pub type Html {
   Html(String)
+  Component(String)
+}
+
+pub type Head {
+  Meta(String)
+  Title(String)
+  Link(String)
+  Style(String)
+  Script(String)
 }
 
 pub fn attribute(key: String, value: String) -> Attribute {
@@ -411,28 +420,41 @@ pub fn hr() -> String {
   "<hr>"
 }
 
-pub fn script(src: String) -> String {
-  "<script src=\"" <> src <> "\"></script>"
+pub fn script(src: String) -> Head {
+  Script("<script src=\"" <> src <> "\"></script>")
 }
 
-pub fn link(rel: String, href: String) -> String {
-  "<link rel=\"" <> rel <> "\" href=\"" <> href <> "\">"
+pub fn link(rel: String, href: String) -> Head {
+  Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\">")
 }
 
-pub fn style(content: String) -> String {
-  "<style>" <> content <> "</style>"
+pub fn style(content: String) -> Head {
+  Style("<style>" <> content <> "</style>")
 }
 
-pub fn meta(name: String, content: String) -> String {
-  "<meta name=\"" <> name <> "\" content=\"" <> content <> "\">"
+pub fn meta(name: String, content: String) -> Head {
+  Meta("<meta name=\"" <> name <> "\" content=\"" <> content <> "\">")
 }
 
-pub fn title(content: String) -> String {
-  "<title>" <> content <> "</title>"
+pub fn title(content: String) -> Head {
+  Title("<title>" <> content <> "</title>")
 }
 
-pub fn head(children: String) -> String {
-  "<head>" <> children <> "</head>"
+pub fn head(children: List(Head)) -> String {
+  "<head>"
+  <> string.join(
+    list.map(children, fn(head: Head) -> String {
+      case head {
+        Meta(meta) -> meta
+        Title(title) -> title
+        Link(link) -> link
+        Style(style) -> style
+        Script(script) -> script
+      }
+    }),
+    "",
+  )
+  <> "</head>"
 }
 
 pub fn body(
