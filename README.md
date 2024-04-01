@@ -2,6 +2,7 @@
 
 [![Package Version](https://img.shields.io/hexpm/v/html_dsl)](https://hex.pm/packages/html_dsl)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/html_dsl/)
+[![test](https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml/badge.svg)](https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml)
 
 A fun way to create HTML in Gleam.
 
