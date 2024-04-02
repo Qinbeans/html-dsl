@@ -3,8 +3,8 @@ import gleeunit/should
 import types/class.{Class}
 import types/id.{Id}
 import types/html.{
-  Attribute, Element, Html, a, body, button, div, form, h1, head, header, html,
-  img, input, label, li, meta, p, span, title, ul,
+  Attribute, a, body, button, div, form, h1, head, header, html, html_to_string,
+  img, input, is_html, label, li, meta, new_element, p, span, title, ul,
 }
 import types/input.{Submit, Text}
 
@@ -14,11 +14,12 @@ pub fn main() {
 
 // gleeunit test functions end in `_test`
 pub fn html_test() {
-  case html("en", "") {
-    Html(root) ->
-      root
+  let html = html("en", "")
+  case is_html(html) {
+    True ->
+      html_to_string(html)
       |> should.equal("<!DOCTYPE html><html lang=\"en\"></html>")
-    _ -> panic("Expected Html")
+    False -> panic("Expected Html")
   }
 }
 
@@ -88,7 +89,7 @@ pub fn img_test() {
 }
 
 pub fn complete_test() {
-  case
+  let html =
     html(
       "en",
       head([title("Hello, Gleam!")])
@@ -105,22 +106,22 @@ pub fn complete_test() {
               label(id.Nil, class.Nil, [], "Name:"),
               input(id.Nil, class.Nil, [], Text, "name"),
               input(id.Nil, class.Nil, [], Submit, "submit"),
-              Element(button(id.Nil, class.Nil, [], "Click me!")),
+              new_element(button(id.Nil, class.Nil, [], "Click me!")),
             ]),
         ),
     )
-  {
-    Html(root) ->
-      root
+  case is_html(html) {
+    True ->
+      html_to_string(html)
       |> should.equal(
         "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title></head><body class=\"grid\" id=\"main-content\"><h1 >Hello, Gleam!</h1><ul ><li >This is a list item</li><li >This is another list item</li></ul><form ><label >Name:</label><input type=\"text\" placeholder=\"name\" /><input type=\"submit\" placeholder=\"submit\" /><button >Click me!</button></form></body></html>",
       )
-    _ -> panic("Expected Html")
+    False -> panic("Expected Html")
   }
 }
 
 pub fn conditional_test() {
-  case
+  let html =
     html(
       "en",
       head([
@@ -144,16 +145,24 @@ pub fn conditional_test() {
               label(id.Nil, class.Nil, [], "Name:"),
               input(id.Nil, class.Nil, [], Text, "name"),
               input(id.Nil, class.Nil, [], Submit, "submit"),
-              Element(button(id.Nil, class.Nil, [], "Click me!")),
+              new_element(button(id.Nil, class.Nil, [], "Click me!")),
             ]),
         ),
     )
-  {
-    Html(root) ->
-      root
+  case is_html(html) {
+    True ->
+      html_to_string(html)
       |> should.equal(
         "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title><meta name=\"description\" content=\"A Gleam program that generates HTML.\"></head><body class=\"grid\" id=\"main-content\"><header ></header><h1 >Hello, World!</h1><ul ><li >This is a list item</li><li >This is another list item</li></ul><form ><label >Name:</label><input type=\"text\" placeholder=\"name\" /><input type=\"submit\" placeholder=\"submit\" /><button >Click me!</button></form></body></html>",
       )
-    _ -> panic("Expected Html")
+    False -> panic("Expected Html")
   }
+}
+
+pub fn illegal_test() {
+  // A test to break parser with illegal characters
+  div(Id("\"><script>alert(\"Pwned\")</script><"), Class("container"), [], "")
+  |> should.equal(
+    "<div class=\"container\" id=\"&#34;&gt;&lt;script&gt;alert(&#34;Pwned&#34;)&lt;/script&gt;&lt;\"></div>",
+  )
 }

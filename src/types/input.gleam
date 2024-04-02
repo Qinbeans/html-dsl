@@ -1,3 +1,4 @@
+/// An enum of all possible input types for an HTML input element.
 pub type InputType {
   Button
   Checkbox
@@ -23,6 +24,14 @@ pub type InputType {
   Week
 }
 
+/// A function that converts an input type to the corresponding HTML attribute as a string.
+///  - `@param` input_type: The input type to convert.
+///  - `@return`: The corresponding HTML attribute as a string.
+/// @example
+/// ```gleam
+/// let str = input_type_to_attribute(InputType.Text)
+/// // str == "type=\"text\""
+/// ```
 pub fn input_type_to_attribute(input_type: InputType) -> String {
   "type=\""
   <> case input_type {

@@ -6,17 +6,6 @@
 
 A fun way to create HTML in Gleam.
 
-```sh
-gleam add html_dsl
-```
-```gleam
-import html_dsl
-
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
-
 Further documentation can be found at <https://hexdocs.pm/html_dsl>.
 
 ## Development
