@@ -424,12 +424,17 @@ pub fn script(src: String) -> Head {
   Script("<script src=\"" <> src <> "\"></script>")
 }
 
-pub fn link(rel: String, href: String) -> Head {
-  Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\">")
+pub fn link(rel: String, href: String, attributes: List(Attribute)) -> Head {
+  let att =
+    list.map(attributes, fn(attribute: Attribute) -> String {
+      render_attribute(attribute)
+    })
+    |> string.join(" ")
+  Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\" " <> att <> ">")
 }
 
 pub fn style(src: String) -> Head {
-  Style("<style src=\"" <> src <> "\"></style>")
+  Style("<link rel=\"stylesheet\" href=\"" <> src <> "\">")
 }
 
 pub fn meta(name: String, content: String) -> Head {
