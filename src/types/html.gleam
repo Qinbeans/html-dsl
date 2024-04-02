@@ -1,5 +1,4 @@
 import gleam/list
-import gleam/string
 import types/class
 import types/id
 import types/input
@@ -101,25 +100,27 @@ pub fn div(
 ) -> String {
   // I'm too lazy, so I'm going to add id to the attributes list
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<div class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</div>"
+      "<div class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</div>"
     }
-    class.Nil -> "<div " <> att_str <> ">" <> child <> "</div>"
+    class.Nil -> "<div" <> att_str <> ">" <> child <> "</div>"
   }
 }
 
@@ -138,19 +139,21 @@ pub fn img(
   attributes: List(Attribute),
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
@@ -160,12 +163,12 @@ pub fn img(
       <> alt
       <> "\" class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> "/>"
     }
     class.Nil ->
-      "<img src=\"" <> src <> "\" alt=\"" <> alt <> "\" " <> att_str <> "/>"
+      "<img src=\"" <> src <> "\" alt=\"" <> alt <> "\"" <> att_str <> "/>"
   }
 }
 
@@ -184,19 +187,21 @@ pub fn a(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
@@ -204,14 +209,14 @@ pub fn a(
       <> href
       <> "\" class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> child
       <> "</a>"
     }
     class.Nil ->
-      "<a href=\"" <> href <> "\" " <> att_str <> ">" <> child <> "</a>"
+      "<a href=\"" <> href <> "\"" <> att_str <> ">" <> child <> "</a>"
   }
 }
 
@@ -228,25 +233,27 @@ pub fn h1(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h1 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h1>"
+      "<h1 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h1>"
     }
-    class.Nil -> "<h1 " <> att_str <> ">" <> child <> "</h1>"
+    class.Nil -> "<h1" <> att_str <> ">" <> child <> "</h1>"
   }
 }
 
@@ -263,25 +270,27 @@ pub fn h2(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h2 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h2>"
+      "<h2 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h2>"
     }
-    class.Nil -> "<h2 " <> att_str <> ">" <> child <> "</h2>"
+    class.Nil -> "<h2" <> att_str <> ">" <> child <> "</h2>"
   }
 }
 
@@ -298,25 +307,27 @@ pub fn h3(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h3 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h3>"
+      "<h3 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h3>"
     }
-    class.Nil -> "<h3 " <> att_str <> ">" <> child <> "</h3>"
+    class.Nil -> "<h3" <> att_str <> ">" <> child <> "</h3>"
   }
 }
 
@@ -333,25 +344,27 @@ pub fn h4(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h4 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h4>"
+      "<h4 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h4>"
     }
-    class.Nil -> "<h4 " <> att_str <> ">" <> child <> "</h4>"
+    class.Nil -> "<h4" <> att_str <> ">" <> child <> "</h4>"
   }
 }
 
@@ -368,25 +381,27 @@ pub fn h5(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h5 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h5>"
+      "<h5 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h5>"
     }
-    class.Nil -> "<h5 " <> att_str <> ">" <> child <> "</h5>"
+    class.Nil -> "<h5" <> att_str <> ">" <> child <> "</h5>"
   }
 }
 
@@ -403,25 +418,27 @@ pub fn h6(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<h6 class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</h6>"
+      "<h6 class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</h6>"
     }
-    class.Nil -> "<h6 " <> att_str <> ">" <> child <> "</h6>"
+    class.Nil -> "<h6" <> att_str <> ">" <> child <> "</h6>"
   }
 }
 
@@ -438,25 +455,27 @@ pub fn p(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<p class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</p>"
+      "<p class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</p>"
     }
-    class.Nil -> "<p " <> att_str <> ">" <> child <> "</p>"
+    class.Nil -> "<p" <> att_str <> ">" <> child <> "</p>"
   }
 }
 
@@ -473,25 +492,27 @@ pub fn span(
   child: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<span class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</span>"
+      "<span class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</span>"
     }
-    class.Nil -> "<span " <> att_str <> ">" <> child <> "</span>"
+    class.Nil -> "<span" <> att_str <> ">" <> child <> "</span>"
   }
 }
 
@@ -508,27 +529,29 @@ pub fn li(
   child: String,
 ) -> ListItem {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       ListItem(
-        "<li class=\"" <> class <> "\" " <> att_str <> ">" <> child <> "</li>",
+        "<li class=\"" <> class <> "\"" <> att_str <> ">" <> child <> "</li>",
       )
     }
-    class.Nil -> ListItem("<li " <> att_str <> ">" <> child <> "</li>")
+    class.Nil -> ListItem("<li" <> att_str <> ">" <> child <> "</li>")
   }
 }
 
@@ -545,22 +568,25 @@ pub fn ul(
   children: List(ListItem),
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   let children_str =
-    list.map(children, fn(list_item: ListItem) -> String {
-      case list_item {
+    list.fold(children, "", fn(str: String, list_item: ListItem) -> String {
+      str
+      <> case list_item {
         ListItem(child) -> child
       }
     })
@@ -569,14 +595,13 @@ pub fn ul(
       let class = illegal_string_check(class)
       "<ul class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
-      <> string.join(children_str, "")
+      <> children_str
       <> "</ul>"
     }
-    class.Nil ->
-      "<ul " <> att_str <> ">" <> string.join(children_str, "") <> "</ul>"
+    class.Nil -> "<ul" <> att_str <> ">" <> children_str <> "</ul>"
   }
 }
 
@@ -593,22 +618,25 @@ pub fn ol(
   children: List(ListItem),
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
   let children_str =
-    list.map(children, fn(list_item: ListItem) -> String {
-      case list_item {
+    list.fold(children, "", fn(str: String, list_item: ListItem) -> String {
+      str
+      <> case list_item {
         ListItem(child) -> child
       }
     })
@@ -617,14 +645,13 @@ pub fn ol(
       let class = illegal_string_check(class)
       "<ol class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
-      <> string.join(children_str, "")
+      <> children_str
       <> "</ol>"
     }
-    class.Nil ->
-      "<ol " <> att_str <> ">" <> string.join(children_str, "") <> "</ol>"
+    class.Nil -> "<ol" <> att_str <> ">" <> children_str <> "</ol>"
   }
 }
 
@@ -655,16 +682,17 @@ pub fn script(src: String) -> Head {
 ///  - `@returns`: A Head
 pub fn link(rel: String, href: String, attributes: List(Attribute)) -> Head {
   let att_str =
-    list.map(attributes, fn(a: Attribute) -> String {
-      render_attribute(Attribute(
+    list.fold(attributes, "", fn(str: String, a: Attribute) -> String {
+      str
+      <> " "
+      <> render_attribute(Attribute(
         illegal_string_check(a.key),
         illegal_string_check(a.value),
       ))
     })
-    |> string.join(" ")
   let rel = illegal_string_check(rel)
   let href = illegal_string_check(href)
-  Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\" " <> att_str <> ">")
+  Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\"" <> att_str <> ">")
 }
 
 /// This creates a string that represents a special link element for stylesheets
@@ -696,19 +724,16 @@ pub fn title(content: String) -> Head {
 ///  - `@param` children: A list of Head elements
 ///  - `@returns`: A string that represents the HTML element
 pub fn head(children: List(Head)) -> String {
-  "<head>"
-  <> string.join(
-    list.map(children, fn(head: Head) -> String {
-      case head {
-        Meta(meta) -> meta
-        Title(title) -> title
-        Link(link) -> link
-        Style(style) -> style
-        Script(script) -> script
-      }
-    }),
-    "",
-  )
+  list.fold(children, "<head>", fn(str: String, head: Head) -> String {
+    str
+    <> case head {
+      Meta(meta) -> meta
+      Title(title) -> title
+      Link(link) -> link
+      Style(style) -> style
+      Script(script) -> script
+    }
+  })
   <> "</head>"
 }
 
@@ -725,32 +750,34 @@ pub fn body(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<body class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</body>"
     }
-    class.Nil -> "<body " <> att_str <> ">" <> children <> "</body>"
+    class.Nil -> "<body" <> att_str <> ">" <> children <> "</body>"
   }
 }
 
@@ -785,19 +812,21 @@ pub fn input(
   placeholder: String,
 ) -> Input {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   Input(case class {
     class.Class(class) -> {
@@ -808,7 +837,7 @@ pub fn input(
       <> placeholder
       <> "\" class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> "/>"
     }
@@ -817,7 +846,7 @@ pub fn input(
       <> input.input_type_to_attribute(input_type)
       <> " placeholder=\""
       <> placeholder
-      <> "\" "
+      <> "\""
       <> att_str
       <> "/>"
   })
@@ -836,32 +865,34 @@ pub fn label(
   child: String,
 ) -> Input {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   Label(case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<label class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> child
       <> "</label>"
     }
-    class.Nil -> "<label " <> att_str <> ">" <> child <> "</label>"
+    class.Nil -> "<label" <> att_str <> ">" <> child <> "</label>"
   })
 }
 
@@ -878,23 +909,26 @@ pub fn form(
   children: List(Input),
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   let children_str =
-    list.map(children, fn(input: Input) -> String {
-      case input {
+    list.fold(children, "", fn(str: String, input: Input) -> String {
+      str
+      <> case input {
         Input(child) -> child
         Element(child) -> child
         Label(child) -> child
@@ -906,14 +940,13 @@ pub fn form(
       let class = illegal_string_check(class)
       "<form class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
-      <> string.join(children_str, "")
+      <> children_str
       <> "</form>"
     }
-    class.Nil ->
-      "<form " <> att_str <> ">" <> string.join(children_str, "") <> "</form>"
+    class.Nil -> "<form" <> att_str <> ">" <> children_str <> "</form>"
   }
 }
 
@@ -930,32 +963,34 @@ pub fn header(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<header class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</header>"
     }
-    class.Nil -> "<header " <> att_str <> ">" <> children <> "</header>"
+    class.Nil -> "<header" <> att_str <> ">" <> children <> "</header>"
   }
 }
 
@@ -972,32 +1007,34 @@ pub fn footer(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<footer class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</footer>"
     }
-    class.Nil -> "<footer " <> att_str <> ">" <> children <> "</footer>"
+    class.Nil -> "<footer" <> att_str <> ">" <> children <> "</footer>"
   }
 }
 
@@ -1014,32 +1051,28 @@ pub fn nav(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
-      "<nav class=\""
-      <> class
-      <> "\" "
-      <> att_str
-      <> ">"
-      <> children
-      <> "</nav>"
+      "<nav class=\"" <> class <> "\"" <> att_str <> ">" <> children <> "</nav>"
     }
-    class.Nil -> "<nav " <> att_str <> ">" <> children <> "</nav>"
+    class.Nil -> "<nav" <> att_str <> ">" <> children <> "</nav>"
   }
 }
 
@@ -1056,32 +1089,34 @@ pub fn section(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<section class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</section>"
     }
-    class.Nil -> "<section " <> att_str <> ">" <> children <> "</section>"
+    class.Nil -> "<section" <> att_str <> ">" <> children <> "</section>"
   }
 }
 
@@ -1098,32 +1133,34 @@ pub fn article(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<article class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</article>"
     }
-    class.Nil -> "<article " <> att_str <> ">" <> children <> "</article>"
+    class.Nil -> "<article" <> att_str <> ">" <> children <> "</article>"
   }
 }
 
@@ -1140,32 +1177,34 @@ pub fn aside(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<aside class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</aside>"
     }
-    class.Nil -> "<aside " <> att_str <> ">" <> children <> "</aside>"
+    class.Nil -> "<aside" <> att_str <> ">" <> children <> "</aside>"
   }
 }
 
@@ -1182,32 +1221,34 @@ pub fn main(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<main class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</main>"
     }
-    class.Nil -> "<main " <> att_str <> ">" <> children <> "</main>"
+    class.Nil -> "<main" <> att_str <> ">" <> children <> "</main>"
   }
 }
 
@@ -1224,32 +1265,34 @@ pub fn button(
   children: String,
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   case class {
     class.Class(class) -> {
       let class = illegal_string_check(class)
       "<button class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
       <> children
       <> "</button>"
     }
-    class.Nil -> "<button " <> att_str <> ">" <> children <> "</button>"
+    class.Nil -> "<button" <> att_str <> ">" <> children <> "</button>"
   }
 }
 
@@ -1266,23 +1309,26 @@ pub fn select(
   options: List(Option),
 ) -> String {
   let att_str =
-    list.map(
+    list.fold(
       case id {
         id.Id(id) -> list.append(attributes, [Attribute("id", id)])
         id.Nil -> attributes
       },
-      fn(a: Attribute) -> String {
-        render_attribute(Attribute(
+      "",
+      fn(str: String, a: Attribute) -> String {
+        str
+        <> " "
+        <> render_attribute(Attribute(
           illegal_string_check(a.key),
           illegal_string_check(a.value),
         ))
       },
     )
-    |> string.join(" ")
 
   let options_str =
-    list.map(options, fn(option: Option) -> String {
-      case option {
+    list.fold(options, "", fn(str: String, option: Option) -> String {
+      str
+      <> case option {
         Option(child) -> child
       }
     })
@@ -1293,18 +1339,13 @@ pub fn select(
       let class = illegal_string_check(class)
       "<select class=\""
       <> class
-      <> "\" "
+      <> "\""
       <> att_str
       <> ">"
-      <> string.join(options_str, "")
+      <> options_str
       <> "</select>"
     }
-    class.Nil ->
-      "<select "
-      <> att_str
-      <> ">"
-      <> string.join(options_str, "")
-      <> "</select>"
+    class.Nil -> "<select" <> att_str <> ">" <> options_str <> "</select>"
   }
 }
 

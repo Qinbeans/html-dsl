@@ -114,7 +114,7 @@ pub fn complete_test() {
     True ->
       html_to_string(html)
       |> should.equal(
-        "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title></head><body class=\"grid\" id=\"main-content\"><h1 >Hello, Gleam!</h1><ul ><li >This is a list item</li><li >This is another list item</li></ul><form ><label >Name:</label><input type=\"text\" placeholder=\"name\" /><input type=\"submit\" placeholder=\"submit\" /><button >Click me!</button></form></body></html>",
+        "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title></head><body class=\"grid\" id=\"main-content\"><h1>Hello, Gleam!</h1><ul><li>This is a list item</li><li>This is another list item</li></ul><form><label>Name:</label><input type=\"text\" placeholder=\"name\"/><input type=\"submit\" placeholder=\"submit\"/><button>Click me!</button></form></body></html>",
       )
     False -> panic("Expected Html")
   }
@@ -153,7 +153,7 @@ pub fn conditional_test() {
     True ->
       html_to_string(html)
       |> should.equal(
-        "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title><meta name=\"description\" content=\"A Gleam program that generates HTML.\"></head><body class=\"grid\" id=\"main-content\"><header ></header><h1 >Hello, World!</h1><ul ><li >This is a list item</li><li >This is another list item</li></ul><form ><label >Name:</label><input type=\"text\" placeholder=\"name\" /><input type=\"submit\" placeholder=\"submit\" /><button >Click me!</button></form></body></html>",
+        "<!DOCTYPE html><html lang=\"en\"><head><title>Hello, Gleam!</title><meta name=\"description\" content=\"A Gleam program that generates HTML.\"></head><body class=\"grid\" id=\"main-content\"><header></header><h1>Hello, World!</h1><ul><li>This is a list item</li><li>This is another list item</li></ul><form><label>Name:</label><input type=\"text\" placeholder=\"name\"/><input type=\"submit\" placeholder=\"submit\"/><button>Click me!</button></form></body></html>",
       )
     False -> panic("Expected Html")
   }

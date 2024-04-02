@@ -10,7 +10,8 @@ Further documentation can be found at <https://qinbeans.github.io/html-dsl/>.
 ## Development
 
 ```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-gleam shell # Run an Erlang shell
+./dev.sh run   # Run the project
+./dev.sh test  # Run the tests
+./dev.sh docs  # Generate the documentation
+./dev.sh build # Build the project
 ```
