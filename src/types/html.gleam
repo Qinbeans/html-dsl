@@ -428,8 +428,8 @@ pub fn link(rel: String, href: String) -> Head {
   Link("<link rel=\"" <> rel <> "\" href=\"" <> href <> "\">")
 }
 
-pub fn style(content: String) -> Head {
-  Style("<style>" <> content <> "</style>")
+pub fn style(src: String) -> Head {
+  Style("<style src=\"" <> src <> "\"></style>")
 }
 
 pub fn meta(name: String, content: String) -> Head {
