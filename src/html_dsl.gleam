@@ -1,7 +1,7 @@
 import gleam/io
 import types/html.{
   body, button, form, h1, head, html, input, label, li, meta, new_element, title,
-  ul,
+  ul, charset
 }
 import types/class.{Class}
 import types/id.{Id}
@@ -14,6 +14,8 @@ pub fn main() {
     head([
         title("Hello, Gleam!"),
         meta("viewport", "width=device-width, initial-scale=1"),
+        meta("description", "Some website"),
+        charset("utf-8")
       ])
       <> body(
         Id("main-content"),

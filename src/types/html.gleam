@@ -712,6 +712,14 @@ pub fn meta(name: String, content: String) -> Head {
   Meta("<meta name=\"" <> name <> "\" content=\"" <> content <> "\">")
 }
 
+/// This creates a string that represents a meta charset
+///  - `@param` charset: the intended charset
+///  - `@return`: A Head
+pub fn charset(set: String) -> Head {
+  let set = illegal_string_check(set)
+  Meta("<meta charset=\"" <> set <>"\">")
+}
+
 /// This creates a string that represents a title element
 ///  - `@param` content: The content of the title
 ///  - `@returns`: A Head
