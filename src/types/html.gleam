@@ -717,7 +717,7 @@ pub fn meta(name: String, content: String) -> Head {
 ///  - `@return`: A Head
 pub fn charset(set: String) -> Head {
   let set = illegal_string_check(set)
-  Meta("<meta charset=\"" <> set <>"\">")
+  Meta("<meta charset=\"" <> set <> "\">")
 }
 
 /// This creates a string that represents a title element
