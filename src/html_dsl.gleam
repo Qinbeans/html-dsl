@@ -1,11 +1,11 @@
 import gleam/io
-import types/html.{
+import html_dsl/types/html.{
   body, button, charset, form, h1, head, html, input, label, li, meta,
   new_element, title, ul,
 }
-import types/class.{Class}
-import types/id.{Id}
-import types/input.{Submit, Text}
+import html_dsl/types/class.{Class}
+import html_dsl/types/id.{Id}
+import html_dsl/types/input.{Submit, Text}
 
 /// Example of creating an HTML string
 pub fn main() {

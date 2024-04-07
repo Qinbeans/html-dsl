@@ -1,8 +1,8 @@
 import gleam/list
-import types/class
-import types/id
-import types/input
-import utils/check.{illegal_string_check}
+import html_dsl/types/class
+import html_dsl/types/id
+import html_dsl/types/input
+import html_dsl/utils/check.{illegal_string_check}
 
 /// Similar to a pair, but uniquely named
 pub type Attribute {

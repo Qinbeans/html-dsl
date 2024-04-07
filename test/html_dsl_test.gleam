@@ -1,12 +1,12 @@
 import gleeunit
 import gleeunit/should
-import types/class.{Class}
-import types/id.{Id}
-import types/html.{
+import html_dsl/types/class.{Class}
+import html_dsl/types/id.{Id}
+import html_dsl/types/html.{
   Attribute, a, body, button, div, form, h1, head, header, html, html_to_string,
   img, input, is_html, label, li, meta, new_element, p, span, title, ul,
 }
-import types/input.{Submit, Text}
+import html_dsl/types/input.{Submit, Text}
 
 pub fn main() {
   gleeunit.main()
