@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>utils/check · html_dsl · v1.0.0</title>
+    <title>html_dsl/types/input · html_dsl · v1.0.0</title>
     <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
-    <link rel="stylesheet" href="../css/index.css?v=1.0.0" type="text/css"/>
+    <link rel="stylesheet" href="../../css/index.css?v=1.0.0" type="text/css"/>
     <!-- The docs_config.js file is provided by HexDocs and shared
          between multiple versions of the same package. -->
-    <script src="../docs_config.js"></script>
-    <link id="syntax-theme" rel="stylesheet" href="../css/atom-one-light.min.css?v=1.0.0"/>
+    <script src="../../docs_config.js"></script>
+    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.0"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -37,7 +37,7 @@
        *   callback: (value) => {...},
        * }, ...};
        */
-      window.unnest = '..';
+      window.unnest = '../..';
       const gleamConfig = {
         theme: {
           values: (() => {
@@ -142,7 +142,7 @@
       </button>
 
       <h2>
-        <a href="../">html_dsl</a>
+        <a href="../../">html_dsl</a>
         <span id="project-version">
           <span> - v1.0.0 </span>
         </span>
@@ -202,7 +202,7 @@
         <h2>Pages</h2>
         <ul>
         
-          <li><a href="../index.html">README</a></li>
+          <li><a href="../../index.html">README</a></li>
         
         </ul>
         
@@ -211,7 +211,7 @@
         <h2>Links</h2>
         <ul>
         
-          <li><a href="https://github.com/gleam-lang/html-dsl">Repository</a></li>
+          <li><a href="https://github.com/Qinbeans/html-dsl">Repository</a></li>
         
         </ul>
         
@@ -219,21 +219,28 @@
         <h2>Modules</h2>
         <ul>
         
-          <li><a href="../html_dsl.html">html_dsl</a></li>
+          <li><a href="../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="../types/class.html">types/class</a></li>
+          <li><a href="../../html_dsl/types/class.html">html_dsl/types/class</a></li>
         
-          <li><a href="../types/html.html">types/html</a></li>
+          <li><a href="../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="../types/id.html">types/id</a></li>
+          <li><a href="../../html_dsl/types/id.html">html_dsl/types/id</a></li>
         
-          <li><a href="../types/input.html">types/input</a></li>
+          <li><a href="../../html_dsl/types/input.html">html_dsl/types/input</a></li>
         
-          <li><a href="../utils/check.html">utils/check</a></li>
+          <li><a href="../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
         </ul>
 
         
+
+<h2>Types</h2>
+<ul>
+  
+  <li><a href="#InputType">InputType</a></li>
+  
+</ul>
 
 
 
@@ -242,7 +249,7 @@
 <h2>Functions</h2>
 <ul>
   
-  <li><a href="#illegal_string_check">illegal_string_check</a></li>
+  <li><a href="#input_type_to_attribute">input_type_to_attribute</a></li>
   
 </ul>
 
@@ -252,11 +259,358 @@
       <main class="content">
         
 <h1 id="module-name" class="module-name">
-  <a href="#module-name">utils/check</a>
+  <a href="#module-name">html_dsl/types/input</a>
   <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
 </h1>
 
 
+
+<section class="module-members">
+  <h1 id="module-types" class="module-member-kind">
+    <a href="#module-types">Types</a>
+    <svg class="icon icon-gleam-chasse-2"><use xlink:href="#icon-gleam-chasse-2"></use></svg>
+  </h1>
+
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="InputType">
+        <a href="#InputType">
+          InputType
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/input.gleam#L2-L2">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+    
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"><p>An enum of all possible input types for an HTML input element.</p>
+</div>
+      <pre><code class="hljs gleam">pub type InputType {
+  Button
+  Checkbox
+  Color
+  Date
+  DatetimeLocal
+  Email
+  File
+  Hidden
+  Image
+  Month
+  Number
+  Password
+  Radio
+  Range
+  Reset
+  Search
+  Submit
+  Tel
+  Text
+  Time
+  Url
+  Week
+}</code></pre>
+      
+      <h3>
+        Constructors
+      </h3>
+      <ul class="constructor-list">
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Button</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Checkbox</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Color</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Date</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">DatetimeLocal</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Email</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">File</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Hidden</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Image</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Month</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Number</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Password</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Radio</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Range</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Reset</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Search</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Submit</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Tel</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Text</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Time</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Url</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
+            <pre class="constructor-name"><code class="hljs gleam">Week</code></pre>
+          </div>
+
+          <div class="constructor-item-docs">
+            
+
+            
+          </div>
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+  
+</section>
 
 
 
@@ -270,21 +624,30 @@
   
   <div class="member">
     <div class="member-name">
-      <h2 id="illegal_string_check">
-        <a href="#illegal_string_check">
-          illegal_string_check
+      <h2 id="input_type_to_attribute">
+        <a href="#input_type_to_attribute">
+          input_type_to_attribute
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/gleam-lang/html-dsl/blob/v1.0.0/src/utils/check.gleam#L4-L4">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/input.gleam#L35-L35">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn illegal_string_check(str: String) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn input_type_to_attribute(input_type: InputType) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"></div>
+    <div class="rendered-markdown"><p>A function that converts an input type to the corresponding HTML attribute as a string.</p>
+<ul>
+<li><code>@param</code> input_type: The input type to convert.</li>
+<li><code>@return</code>: The corresponding HTML attribute as a string.
+@example</li>
+</ul>
+<pre><code class="language-gleam">let str = input_type_to_attribute(InputType.Text)
+// str == &quot;type=\&quot;text\&quot;&quot;
+</code></pre>
+</div>
   </div>
   
 </section>
@@ -349,12 +712,12 @@
       </defs>
     </svg>
 
-    <script src="../js/highlight.min.js?v=1.0.0"></script>
-    <script src="../js/highlightjs-gleam.js?v=1.0.0"></script>
-    <script src="../js/highlightjs-erlang.min.js?v=1.0.0"></script>
-    <script src="../js/highlightjs-elixir.min.js?v=1.0.0"></script>
-    <script src="../js/highlightjs-javascript.min.js?v=1.0.0"></script>
-    <script src="../js/highlightjs-typescript.min.js?v=1.0.0"></script>
+    <script src="../../js/highlight.min.js?v=1.0.0"></script>
+    <script src="../../js/highlightjs-gleam.js?v=1.0.0"></script>
+    <script src="../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
+    <script src="../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
+    <script src="../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
+    <script src="../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -363,10 +726,10 @@
       });
       hljs.highlightAll();
     </script>
-    <script src="../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../js/index.js?v=1712090858"></script>
+    <script src="../../js/lunr.min.js?v=1.0.0"></script>    
+    <script src="../../js/index.js?v=1712519722"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../search-data.js?v=1712090858"></script>
+    <script src="../../search-data.js?v=1712519722"></script>
   </body>
 </html>
