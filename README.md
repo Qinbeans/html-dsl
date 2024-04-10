@@ -15,6 +15,12 @@ I thought that Gleam had a very unique type system in which I could wrap strings
 
 I'm not sure what else to expand except implementing more existing HTML elements.
 
+## Installation
+
+```sh
+gleam add html_dsl
+```
+
 ## Examples
 
 ```gleam
@@ -70,6 +76,8 @@ fn main() {
 So why use strings to build each element? Ultimately everything is parsed into a string so I wanted to get straight to the point with little to no intermediate step. Don't get me wrong, I still have intermediate's here and there, but that's more for explicitness. It prevents bad [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) from being written.
 
 ## Development
+
+This is for use for contributors to the project.
 
 ```sh
 ./dev.sh run   # Run the project
