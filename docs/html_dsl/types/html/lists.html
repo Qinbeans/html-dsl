@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>html_dsl/types/class · html_dsl · v1.0.0</title>
+    <title>html_dsl/types/html/lists · html_dsl · v1.1.0</title>
     <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
-    <link rel="stylesheet" href="../../css/index.css?v=1.0.0" type="text/css"/>
+    <link rel="stylesheet" href="../../../css/index.css?v=1.0.0" type="text/css"/>
     <!-- The docs_config.js file is provided by HexDocs and shared
          between multiple versions of the same package. -->
-    <script src="../../docs_config.js"></script>
-    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.0"/>
+    <script src="../../../docs_config.js"></script>
+    <link id="syntax-theme" rel="stylesheet" href="../../../css/atom-one-light.min.css?v=1.0.0"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -37,7 +37,7 @@
        *   callback: (value) => {...},
        * }, ...};
        */
-      window.unnest = '../..';
+      window.unnest = '../../..';
       const gleamConfig = {
         theme: {
           values: (() => {
@@ -142,15 +142,15 @@
       </button>
 
       <h2>
-        <a href="../../">html_dsl</a>
+        <a href="../../../">html_dsl</a>
         <span id="project-version">
-          <span> - v1.0.0 </span>
+          <span> - v1.1.0 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v1.0.0";
+            const currentVersion = "v1.1.0";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -202,7 +202,7 @@
         <h2>Pages</h2>
         <ul>
         
-          <li><a href="../../index.html">README</a></li>
+          <li><a href="../../../index.html">README</a></li>
         
         </ul>
         
@@ -219,17 +219,21 @@
         <h2>Modules</h2>
         <ul>
         
-          <li><a href="../../html_dsl.html">html_dsl</a></li>
+          <li><a href="../../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="../../html_dsl/types/class.html">html_dsl/types/class</a></li>
+          <li><a href="../../../html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
         
-          <li><a href="../../html_dsl/types/html.html">html_dsl/types/html</a></li>
+          <li><a href="../../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="../../html_dsl/types/id.html">html_dsl/types/id</a></li>
+          <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/input.html">html_dsl/types/input</a></li>
+          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
         
-          <li><a href="../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
+          <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
+        
+          <li><a href="../../../html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
+        
+          <li><a href="../../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
         </ul>
 
@@ -238,7 +242,7 @@
 <h2>Types</h2>
 <ul>
   
-  <li><a href="#Class">Class</a></li>
+  <li><a href="#ListItem">ListItem</a></li>
   
 </ul>
 
@@ -246,13 +250,28 @@
 
 
 
+<h2>Functions</h2>
+<ul>
+  
+  <li><a href="#add">add</a></li>
+  
+  <li><a href="#li">li</a></li>
+  
+  <li><a href="#li_to_string">li_to_string</a></li>
+  
+  <li><a href="#ol">ol</a></li>
+  
+  <li><a href="#ul">ul</a></li>
+  
+</ul>
+
 
       </nav>
 
       <main class="content">
         
 <h1 id="module-name" class="module-name">
-  <a href="#module-name">html_dsl/types/class</a>
+  <a href="#module-name">html_dsl/types/html/lists</a>
   <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
 </h1>
 
@@ -267,59 +286,22 @@
   
   <div class="member">
     <div class="member-name">
-      <h2 id="Class">
-        <a href="#Class">
-          Class
+      <h2 id="ListItem">
+        <a href="#ListItem">
+          ListItem
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/class.gleam#L4-L4">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L5-L5">
         &lt;/&gt;
       </a>
       
     </div>
     
     <div class="custom-type-constructors">
-      <div class="rendered-markdown"><p>Refers to the class attribute of a node.</p>
-<p>Exists for clarity and to avoid misuse with proper strings</p>
+      <div class="rendered-markdown"><p>Exists to prevent strings from being passed to ul and ol</p>
 </div>
-      <pre><code class="hljs gleam">pub type Class {
-  Class(String)
-  Nil
-}</code></pre>
-      
-      <h3>
-        Constructors
-      </h3>
-      <ul class="constructor-list">
-        
-        <li class="constructor-item">
-          <div class="constructor-row">
-            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
-            <pre class="constructor-name"><code class="hljs gleam">Class(String)</code></pre>
-          </div>
-
-          <div class="constructor-item-docs">
-            
-
-            
-          </div>
-        </li>
-        
-        <li class="constructor-item">
-          <div class="constructor-row">
-            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
-            <pre class="constructor-name"><code class="hljs gleam">Nil</code></pre>
-          </div>
-
-          <div class="constructor-item-docs">
-            
-
-            
-          </div>
-        </li>
-        
-      </ul>
+      <pre><code class="hljs gleam">pub opaque type ListItem</code></pre>
       
     </div>
   </div>
@@ -329,6 +311,149 @@
 
 
 
+
+<section class="module-members">
+  <h1 id="module-functions" class="module-member-kind">
+    <a href="#module-functions">Functions</a>
+    <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
+  </h1>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="add">
+        <a href="#add">
+          add
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L27-L33">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn add(
+  root root: ListItem,
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  inner inner: String,
+) -&gt; ListItem</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a list item element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> child: The child of the element</li>
+<li><code>@returns</code>: A ListItem</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="li">
+        <a href="#li">
+          li
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L17-L17">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn li() -&gt; ListItem</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="li_to_string">
+        <a href="#li_to_string">
+          li_to_string
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L10-L10">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn li_to_string(li: ListItem) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="ol">
+        <a href="#ol">
+          ol
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L82-L87">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn ol(
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  inner inner: ListItem,
+) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents an ordered list element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> children: a list of ListItems</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="ul">
+        <a href="#ul">
+          ul
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L55-L60">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn ul(
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  inner inner: ListItem,
+) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents an unordered list element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> children: a list of ListItems</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
+  </div>
+  
+</section>
 
 
       </main>
@@ -390,12 +515,12 @@
       </defs>
     </svg>
 
-    <script src="../../js/highlight.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-gleam.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlight.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-gleam.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -404,10 +529,10 @@
       });
       hljs.highlightAll();
     </script>
-    <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712519722"></script>
+    <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
+    <script src="../../../js/index.js?v=1712739397"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712519722"></script>
+    <script src="../../../search-data.js?v=1712739397"></script>
   </body>
 </html>

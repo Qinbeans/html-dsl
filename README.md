@@ -18,44 +18,53 @@ I'm not sure what else to expand except implementing more existing HTML elements
 ## Examples
 
 ```gleam
-import html_dsl/types/html.{Html, Attribute, head, style, script, body, title, charset, meta, button}
-import html_dsl/types/id.{Id}
-import html_dsl/types/class.{Class}
+import html_dsl/types/html.{body, button, h1, header, html}
+import html_dsl/types/html/head.{charset, head, meta, title}
+import html_dsl/types/html/lists.{li, ul}
+import html_dsl/types/html/form.{Submit, Text, form, input, label}
+import html_dsl/types/attribute.{attribute}
 // If you're familiar with HTML, this might seem pretty standalone
 fn main() {
-  let my_doc = Html(
-    "en", // States the locale
-    head([
-      title("My doc"),
-      charset("utf-8"),
-      meta("description","This is my doc"),
-      meta("viewport","width=device-width, initial-scale=1"),
-      style("https://cdn.tailwindcss.com"),
-      script("https://unpkg.com/htmx.org@1.9.11")
-    ])
-    // Most elements are strings under the hood so we can concat them
-    <> body(
-        Id("main-content"), // This declares we do not need an id
-        Class("text-white"),
-        [], // Have no custom attributes
-        button(
-          id.Nil,
-          class.Nil,
-          [
-            Attribute("hx-trigger", "click"),
-            Attribute("hx-get", "/clicked"),
-            Attribute("hx-boost", "true"),
-            Attribute("target", "#main-content")
-          ],
-          "Happy Days"
+  let my_doc = html(
+    lang: "en",
+    head: head()
+      |> title("Hello, Gleam!")
+      |> charset("UTF-8")
+      |> meta("description", "A Gleam program that generates HTML."),
+    body: body(
+      id: "main-content",
+      class: "grid",
+      attributes: attribute(),
+      inner: header("", "", attribute(), "")
+        <> case False {
+          True -> h1("", "", attribute(), "True")
+          False -> h1("", "", attribute(), "False")
+        }
+        <> ul(
+          "",
+          "",
+          attribute(),
+          li()
+            |> lists.add("", "", attribute(), "This is a list item")
+            |> lists.add("", "", attribute(), "This is another list item"),
         )
-      )
+        <> form(
+          "",
+          "",
+          attribute(),
+          form.init()
+            |> label("", "", attribute(), "Name:")
+            |> input("", "", attribute(), Text, "name")
+            |> input("", "", attribute(), Submit, "submit")
+            |> form.element(button("", "", attribute(), "Click me!")),
+        ),
+    ),
   )
   // We can access the document as a string
   let _ = html.html_to_string(my_doc)
   // or through the pipe operator
   let _ = my_doc
-    |> html.html_to_string()
+  |> html.html_to_string()
 }
 ```
 So why use strings to build each element? Ultimately everything is parsed into a string so I wanted to get straight to the point with little to no intermediate step. Don't get me wrong, I still have intermediate's here and there, but that's more for explicitness. It prevents bad [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) from being written.

@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>html_dsl/types/input · html_dsl · v1.0.0</title>
+    <title>html_dsl/types/html/form · html_dsl · v1.1.0</title>
     <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
-    <link rel="stylesheet" href="../../css/index.css?v=1.0.0" type="text/css"/>
+    <link rel="stylesheet" href="../../../css/index.css?v=1.0.0" type="text/css"/>
     <!-- The docs_config.js file is provided by HexDocs and shared
          between multiple versions of the same package. -->
-    <script src="../../docs_config.js"></script>
-    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.0"/>
+    <script src="../../../docs_config.js"></script>
+    <link id="syntax-theme" rel="stylesheet" href="../../../css/atom-one-light.min.css?v=1.0.0"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -37,7 +37,7 @@
        *   callback: (value) => {...},
        * }, ...};
        */
-      window.unnest = '../..';
+      window.unnest = '../../..';
       const gleamConfig = {
         theme: {
           values: (() => {
@@ -142,15 +142,15 @@
       </button>
 
       <h2>
-        <a href="../../">html_dsl</a>
+        <a href="../../../">html_dsl</a>
         <span id="project-version">
-          <span> - v1.0.0 </span>
+          <span> - v1.1.0 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v1.0.0";
+            const currentVersion = "v1.1.0";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -202,7 +202,7 @@
         <h2>Pages</h2>
         <ul>
         
-          <li><a href="../../index.html">README</a></li>
+          <li><a href="../../../index.html">README</a></li>
         
         </ul>
         
@@ -219,17 +219,21 @@
         <h2>Modules</h2>
         <ul>
         
-          <li><a href="../../html_dsl.html">html_dsl</a></li>
+          <li><a href="../../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="../../html_dsl/types/class.html">html_dsl/types/class</a></li>
+          <li><a href="../../../html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
         
-          <li><a href="../../html_dsl/types/html.html">html_dsl/types/html</a></li>
+          <li><a href="../../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="../../html_dsl/types/id.html">html_dsl/types/id</a></li>
+          <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/input.html">html_dsl/types/input</a></li>
+          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
         
-          <li><a href="../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
+          <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
+        
+          <li><a href="../../../html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
+        
+          <li><a href="../../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
         </ul>
 
@@ -237,6 +241,8 @@
 
 <h2>Types</h2>
 <ul>
+  
+  <li><a href="#Input">Input</a></li>
   
   <li><a href="#InputType">InputType</a></li>
   
@@ -249,7 +255,19 @@
 <h2>Functions</h2>
 <ul>
   
+  <li><a href="#element">element</a></li>
+  
+  <li><a href="#form">form</a></li>
+  
+  <li><a href="#init">init</a></li>
+  
+  <li><a href="#input">input</a></li>
+  
+  <li><a href="#input_to_string">input_to_string</a></li>
+  
   <li><a href="#input_type_to_attribute">input_type_to_attribute</a></li>
+  
+  <li><a href="#label">label</a></li>
   
 </ul>
 
@@ -259,7 +277,7 @@
       <main class="content">
         
 <h1 id="module-name" class="module-name">
-  <a href="#module-name">html_dsl/types/input</a>
+  <a href="#module-name">html_dsl/types/html/form</a>
   <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
 </h1>
 
@@ -274,13 +292,35 @@
   
   <div class="member">
     <div class="member-name">
+      <h2 id="Input">
+        <a href="#Input">
+          Input
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L31-L31">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+    
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"><p>Exists to prevent strings from being passed to forms</p>
+</div>
+      <pre><code class="hljs gleam">pub opaque type Input</code></pre>
+      
+    </div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="InputType">
         <a href="#InputType">
           InputType
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/input.gleam#L2-L2">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L5-L5">
         &lt;/&gt;
       </a>
       
@@ -624,13 +664,146 @@
   
   <div class="member">
     <div class="member-name">
+      <h2 id="element">
+        <a href="#element">
+          element
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L89-L89">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn element(
+  root root: Input,
+  content content: String,
+) -&gt; Input</code></pre>
+    
+    <div class="rendered-markdown"><p>Element is part of an opaque type, so it can’t be accessed directly</p>
+<p>This function is used to create an Element</p>
+<ul>
+<li><code>@param</code> content: The content of the element</li>
+<li><code>@returns</code>: An Element</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="form">
+        <a href="#form">
+          form
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L184-L189">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn form(
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  inner inner: Input,
+) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a form element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> children: The children of the element</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="init">
+        <a href="#init">
+          init
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L80-L80">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn init() -&gt; Input</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="input">
+        <a href="#input">
+          input
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L100-L107">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn input(
+  root root: Input,
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  input_type input_type: InputType,
+  placeholder placeholder: String,
+) -&gt; Input</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents an input element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> input_type: The type of the input</li>
+<li><code>@param</code> placeholder: The placeholder of the input</li>
+<li><code>@returns</code>: An Input</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="input_to_string">
+        <a href="#input_to_string">
+          input_to_string
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L73-L73">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn input_to_string(input: Input) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="input_type_to_attribute">
         <a href="#input_type_to_attribute">
           input_type_to_attribute
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/input.gleam#L35-L35">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L44-L44">
         &lt;/&gt;
       </a>
       
@@ -647,6 +820,39 @@
 <pre><code class="language-gleam">let str = input_type_to_attribute(InputType.Text)
 // str == &quot;type=\&quot;text\&quot;&quot;
 </code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="label">
+        <a href="#label">
+          label
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L147-L153">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn label(
+  root root: Input,
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  innner inner: String,
+) -&gt; Input</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a label element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> child: The child of the element</li>
+<li><code>@returns</code>: An Input</li>
+</ul>
 </div>
   </div>
   
@@ -712,12 +918,12 @@
       </defs>
     </svg>
 
-    <script src="../../js/highlight.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-gleam.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlight.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-gleam.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -726,10 +932,10 @@
       });
       hljs.highlightAll();
     </script>
-    <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712519722"></script>
+    <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
+    <script src="../../../js/index.js?v=1712739397"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712519722"></script>
+    <script src="../../../search-data.js?v=1712739397"></script>
   </body>
 </html>
