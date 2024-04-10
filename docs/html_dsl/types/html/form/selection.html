@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>html_dsl · v1.1.0</title>
-    <meta name="description" content="A DSL for generating HTML in Gleam"/>
+    <title>html_dsl/types/html/form/selection · html_dsl · v1.1.0</title>
+    <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
-    <link rel="stylesheet" href="./css/index.css?v=1.0.0" type="text/css"/>
+    <link rel="stylesheet" href="../../../../css/index.css?v=1.0.0" type="text/css"/>
     <!-- The docs_config.js file is provided by HexDocs and shared
          between multiple versions of the same package. -->
-    <script src="./docs_config.js"></script>
-    <link id="syntax-theme" rel="stylesheet" href="./css/atom-one-light.min.css?v=1.0.0"/>
+    <script src="../../../../docs_config.js"></script>
+    <link id="syntax-theme" rel="stylesheet" href="../../../../css/atom-one-light.min.css?v=1.0.0"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -37,7 +37,7 @@
        *   callback: (value) => {...},
        * }, ...};
        */
-      window.unnest = '.';
+      window.unnest = '../../../..';
       const gleamConfig = {
         theme: {
           values: (() => {
@@ -142,7 +142,7 @@
       </button>
 
       <h2>
-        <a href="./">html_dsl</a>
+        <a href="../../../../">html_dsl</a>
         <span id="project-version">
           <span> - v1.1.0 </span>
         </span>
@@ -202,7 +202,7 @@
         <h2>Pages</h2>
         <ul>
         
-          <li><a href="./index.html">README</a></li>
+          <li><a href="../../../../index.html">README</a></li>
         
         </ul>
         
@@ -219,86 +219,202 @@
         <h2>Modules</h2>
         <ul>
         
-          <li><a href="./html_dsl.html">html_dsl</a></li>
+          <li><a href="../../../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="./html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
+          <li><a href="../../../../html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
         
-          <li><a href="./html_dsl/types/html.html">html_dsl/types/html</a></li>
+          <li><a href="../../../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="./html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
+          <li><a href="../../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="./html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
         
-          <li><a href="./html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
+          <li><a href="../../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
-          <li><a href="./html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
+          <li><a href="../../../../html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
         
-          <li><a href="./html_dsl/utils/check.html">html_dsl/utils/check</a></li>
+          <li><a href="../../../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
         </ul>
 
         
+
+<h2>Types</h2>
+<ul>
+  
+  <li><a href="#Option">Option</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Functions</h2>
+<ul>
+  
+  <li><a href="#add">add</a></li>
+  
+  <li><a href="#option">option</a></li>
+  
+  <li><a href="#option_to_string">option_to_string</a></li>
+  
+  <li><a href="#select">select</a></li>
+  
+</ul>
+
+
       </nav>
 
       <main class="content">
         
-<h1>html_dsl</h1>
-<p><a href="https://qinbeans.github.io/html-dsl/"><img src="https://img.shields.io/badge/hex-docs-ffaff3" alt="Hex Docs" /></a>
-<a href="https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml"><img src="https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml/badge.svg" alt="test" /></a></p>
-<p>A fun way to create HTML in Gleam.</p>
-<h2>Premise</h2>
-<p>I wanted a simple framework to build HTML and I saw a way forward with strings.</p>
-<p>I thought that Gleam had a very unique type system in which I could wrap strings around a named type like <code>Html</code> or <code>Head</code>. The way I implemented it does restrict general reactivity through Gleam itself, but I never thought making this a standalone framework as an option. The idea was to combine this with existing frontend libraries like HTMX to add that touch of reactivity.</p>
-<h2>Going forward</h2>
-<p>I’m not sure what else to expand except implementing more existing HTML elements.</p>
-<h2>Examples</h2>
-<pre><code class="language-gleam">import html_dsl/types/html.{Html, Attribute, head, style, script, body, title, charset, meta, button}
-import html_dsl/types/id.{Id}
-import html_dsl/types/class.{Class}
-// If you're familiar with HTML, this might seem pretty standalone
-fn main() {
- let my_doc = Html(
-   &quot;en&quot;, // States the locale
-   head([
-     title(&quot;My doc&quot;),
-     charset(&quot;utf-8&quot;),
-     meta(&quot;description&quot;,&quot;This is my doc&quot;),
-     meta(&quot;viewport&quot;,&quot;width=device-width, initial-scale=1&quot;),
-     style(&quot;https://cdn.tailwindcss.com&quot;),
-     script(&quot;https://unpkg.com/htmx.org@1.9.11&quot;)
-   ])
-   // Most elements are strings under the hood so we can concat them
-   &lt;&gt; body(
-       Id(&quot;main-content&quot;), // This declares we do not need an id
-       Class(&quot;text-white&quot;),
-       [], // Have no custom attributes
-       button(
-         id.Nil,
-         class.Nil,
-         [
-           Attribute(&quot;hx-trigger&quot;, &quot;click&quot;),
-           Attribute(&quot;hx-get&quot;, &quot;/clicked&quot;),
-           Attribute(&quot;hx-boost&quot;, &quot;true&quot;),
-           Attribute(&quot;target&quot;, &quot;#main-content&quot;)
-         ],
-         &quot;Happy Days&quot;
-       )
-     )
- )
- // We can access the document as a string
- let _ = html.html_to_string(my_doc)
- // or through the pipe operator
- let _ = my_doc
-   |&gt; html.html_to_string()
-}
-</code></pre>
-<p>So why use strings to build each element? Ultimately everything is parsed into a string so I wanted to get straight to the point with little to no intermediate step. Don’t get me wrong, I still have intermediate’s here and there, but that’s more for explicitness. It prevents bad <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> from being written.</p>
-<h2>Development</h2>
-<pre><code class="language-sh">./dev.sh run   # Run the project
-./dev.sh test  # Run the tests
-./dev.sh docs  # Generate the documentation
-./dev.sh build # Build the project
-</code></pre>
+<h1 id="module-name" class="module-name">
+  <a href="#module-name">html_dsl/types/html/form/selection</a>
+  <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
+</h1>
+
+
+
+<section class="module-members">
+  <h1 id="module-types" class="module-member-kind">
+    <a href="#module-types">Types</a>
+    <svg class="icon icon-gleam-chasse-2"><use xlink:href="#icon-gleam-chasse-2"></use></svg>
+  </h1>
+
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="Option">
+        <a href="#Option">
+          Option
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form/selection.gleam#L4-L4">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+    
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"></div>
+      <pre><code class="hljs gleam">pub opaque type Option</code></pre>
+      
+    </div>
+  </div>
+  
+</section>
+
+
+
+
+
+<section class="module-members">
+  <h1 id="module-functions" class="module-member-kind">
+    <a href="#module-functions">Functions</a>
+    <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
+  </h1>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="add">
+        <a href="#add">
+          add
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form/selection.gleam#L55-L59">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn add(
+  root root: Option,
+  value value: String,
+  inner inner: String,
+) -&gt; Option</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents an option element</p>
+<ul>
+<li><code>@param</code> value: The value of the option</li>
+<li><code>@param</code> children: The children of the option</li>
+<li><code>@returns</code>: An Option</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="option">
+        <a href="#option">
+          option
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form/selection.gleam#L47-L47">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn option() -&gt; Option</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="option_to_string">
+        <a href="#option_to_string">
+          option_to_string
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form/selection.gleam#L40-L40">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn option_to_string(option: Option) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"></div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="select">
+        <a href="#select">
+          select
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form/selection.gleam#L15-L20">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn select(
+  id id: String,
+  class class: String,
+  attributes attributes: Attribute,
+  options options: Option,
+) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a select element</p>
+<ul>
+<li><code>@param</code> id: The id of the element</li>
+<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> attributes: The attributes of the element</li>
+<li><code>@param</code> options: The options of the select</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
+  </div>
+  
+</section>
 
 
       </main>
@@ -360,12 +476,12 @@ fn main() {
       </defs>
     </svg>
 
-    <script src="./js/highlight.min.js?v=1.0.0"></script>
-    <script src="./js/highlightjs-gleam.js?v=1.0.0"></script>
-    <script src="./js/highlightjs-erlang.min.js?v=1.0.0"></script>
-    <script src="./js/highlightjs-elixir.min.js?v=1.0.0"></script>
-    <script src="./js/highlightjs-javascript.min.js?v=1.0.0"></script>
-    <script src="./js/highlightjs-typescript.min.js?v=1.0.0"></script>
+    <script src="../../../../js/highlight.min.js?v=1.0.0"></script>
+    <script src="../../../../js/highlightjs-gleam.js?v=1.0.0"></script>
+    <script src="../../../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
+    <script src="../../../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
+    <script src="../../../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
+    <script src="../../../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -374,10 +490,10 @@ fn main() {
       });
       hljs.highlightAll();
     </script>
-    <script src="./js/lunr.min.js?v=1.0.0"></script>    
-    <script src="./js/index.js?v=1712739397"></script>
+    <script src="../../../../js/lunr.min.js?v=1.0.0"></script>    
+    <script src="../../../../js/index.js?v=1712739397"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="./search-data.js?v=1712739397"></script>
+    <script src="../../../../search-data.js?v=1712739397"></script>
   </body>
 </html>

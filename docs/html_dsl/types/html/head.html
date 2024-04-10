@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>html_dsl/types/id · html_dsl · v1.0.0</title>
+    <title>html_dsl/types/html/head · html_dsl · v1.1.0</title>
     <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
-    <link rel="stylesheet" href="../../css/index.css?v=1.0.0" type="text/css"/>
+    <link rel="stylesheet" href="../../../css/index.css?v=1.0.0" type="text/css"/>
     <!-- The docs_config.js file is provided by HexDocs and shared
          between multiple versions of the same package. -->
-    <script src="../../docs_config.js"></script>
-    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.0"/>
+    <script src="../../../docs_config.js"></script>
+    <link id="syntax-theme" rel="stylesheet" href="../../../css/atom-one-light.min.css?v=1.0.0"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -37,7 +37,7 @@
        *   callback: (value) => {...},
        * }, ...};
        */
-      window.unnest = '../..';
+      window.unnest = '../../..';
       const gleamConfig = {
         theme: {
           values: (() => {
@@ -142,15 +142,15 @@
       </button>
 
       <h2>
-        <a href="../../">html_dsl</a>
+        <a href="../../../">html_dsl</a>
         <span id="project-version">
-          <span> - v1.0.0 </span>
+          <span> - v1.1.0 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v1.0.0";
+            const currentVersion = "v1.1.0";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -202,7 +202,7 @@
         <h2>Pages</h2>
         <ul>
         
-          <li><a href="../../index.html">README</a></li>
+          <li><a href="../../../index.html">README</a></li>
         
         </ul>
         
@@ -219,17 +219,21 @@
         <h2>Modules</h2>
         <ul>
         
-          <li><a href="../../html_dsl.html">html_dsl</a></li>
+          <li><a href="../../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="../../html_dsl/types/class.html">html_dsl/types/class</a></li>
+          <li><a href="../../../html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
         
-          <li><a href="../../html_dsl/types/html.html">html_dsl/types/html</a></li>
+          <li><a href="../../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="../../html_dsl/types/id.html">html_dsl/types/id</a></li>
+          <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/input.html">html_dsl/types/input</a></li>
+          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
         
-          <li><a href="../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
+          <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
+        
+          <li><a href="../../../html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
+        
+          <li><a href="../../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
         </ul>
 
@@ -238,7 +242,7 @@
 <h2>Types</h2>
 <ul>
   
-  <li><a href="#Id">Id</a></li>
+  <li><a href="#Head">Head</a></li>
   
 </ul>
 
@@ -246,13 +250,34 @@
 
 
 
+<h2>Functions</h2>
+<ul>
+  
+  <li><a href="#charset">charset</a></li>
+  
+  <li><a href="#head">head</a></li>
+  
+  <li><a href="#head_to_string">head_to_string</a></li>
+  
+  <li><a href="#link">link</a></li>
+  
+  <li><a href="#meta">meta</a></li>
+  
+  <li><a href="#script">script</a></li>
+  
+  <li><a href="#style">style</a></li>
+  
+  <li><a href="#title">title</a></li>
+  
+</ul>
+
 
       </nav>
 
       <main class="content">
         
 <h1 id="module-name" class="module-name">
-  <a href="#module-name">html_dsl/types/id</a>
+  <a href="#module-name">html_dsl/types/html/head</a>
   <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
 </h1>
 
@@ -267,59 +292,22 @@
   
   <div class="member">
     <div class="member-name">
-      <h2 id="Id">
-        <a href="#Id">
-          Id
+      <h2 id="Head">
+        <a href="#Head">
+          Head
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/types/id.gleam#L4-L4">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L5-L5">
         &lt;/&gt;
       </a>
       
     </div>
     
     <div class="custom-type-constructors">
-      <div class="rendered-markdown"><p>Refers to the id attribute of a node.</p>
-<p>Exists for clarity and to avoid misuse with proper strings</p>
+      <div class="rendered-markdown"><p>Head is a type that represents the head of an HTML document</p>
 </div>
-      <pre><code class="hljs gleam">pub type Id {
-  Id(String)
-  Nil
-}</code></pre>
-      
-      <h3>
-        Constructors
-      </h3>
-      <ul class="constructor-list">
-        
-        <li class="constructor-item">
-          <div class="constructor-row">
-            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
-            <pre class="constructor-name"><code class="hljs gleam">Id(String)</code></pre>
-          </div>
-
-          <div class="constructor-item-docs">
-            
-
-            
-          </div>
-        </li>
-        
-        <li class="constructor-item">
-          <div class="constructor-row">
-            <svg class="icon icon-star"><use xlink:href="#icon-star"></use></svg>
-            <pre class="constructor-name"><code class="hljs gleam">Nil</code></pre>
-          </div>
-
-          <div class="constructor-item-docs">
-            
-
-            
-          </div>
-        </li>
-        
-      </ul>
+      <pre><code class="hljs gleam">pub opaque type Head</code></pre>
       
     </div>
   </div>
@@ -329,6 +317,213 @@
 
 
 
+
+<section class="module-members">
+  <h1 id="module-functions" class="module-member-kind">
+    <a href="#module-functions">Functions</a>
+    <svg class="icon icon-gleam-chasse"><use xlink:href="#icon-gleam-chasse"></use></svg>
+  </h1>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="charset">
+        <a href="#charset">
+          charset
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L89-L89">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn charset(root: Head, set: String) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a meta charset</p>
+<ul>
+<li><code>@param</code> charset: the intended charset</li>
+<li><code>@return</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="head">
+        <a href="#head">
+          head
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L12-L12">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn head() -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>Starts a head context</p>
+<ul>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="head_to_string">
+        <a href="#head_to_string">
+          head_to_string
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L19-L19">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn head_to_string(head: Head) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>This function converts a Head to a string</p>
+<ul>
+<li><code>@param</code> head: The head to convert</li>
+<li><code>@returns</code>: A string</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="link">
+        <a href="#link">
+          link
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L39-L44">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn link(
+  root: Head,
+  rel: String,
+  href: String,
+  attributes: Attribute,
+) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a link element</p>
+<ul>
+<li><code>@param</code> rel: The relationship of the link</li>
+<li><code>@param</code> href: The href of the link</li>
+<li><code>@param</code> attributes: The attributes of the link</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="meta">
+        <a href="#meta">
+          meta
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L74-L74">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn meta(root: Head, name: String, content: String) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a meta element</p>
+<ul>
+<li><code>@param</code> name: The name of the meta</li>
+<li><code>@param</code> content: The content of the meta</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="script">
+        <a href="#script">
+          script
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L29-L29">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn script(root: Head, src: String) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a script element</p>
+<ul>
+<li><code>@param</code> src: The source of the script</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="style">
+        <a href="#style">
+          style
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L63-L63">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn style(root: Head, src: String) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a special link element for stylesheets</p>
+<ul>
+<li><code>@param</code> src: The source of the stylesheet</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="title">
+        <a href="#title">
+          title
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L97-L97">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn title(root: Head, content: String) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>This creates a string that represents a title element</p>
+<ul>
+<li><code>@param</code> content: The content of the title</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+</section>
 
 
       </main>
@@ -390,12 +585,12 @@
       </defs>
     </svg>
 
-    <script src="../../js/highlight.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-gleam.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
-    <script src="../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlight.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-gleam.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-erlang.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-elixir.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-javascript.min.js?v=1.0.0"></script>
+    <script src="../../../js/highlightjs-typescript.min.js?v=1.0.0"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -404,10 +599,10 @@
       });
       hljs.highlightAll();
     </script>
-    <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712519722"></script>
+    <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
+    <script src="../../../js/index.js?v=1712739397"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712519722"></script>
+    <script src="../../../search-data.js?v=1712739397"></script>
   </body>
 </html>

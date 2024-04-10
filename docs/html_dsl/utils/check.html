@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>html_dsl/utils/check · html_dsl · v1.0.0</title>
+    <title>html_dsl/utils/check · html_dsl · v1.1.0</title>
     <meta name="description" content=""/>
     <meta name="theme-color" content="#ffaff3" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#33384d" media="(prefers-color-scheme: dark)"/>
@@ -144,13 +144,13 @@
       <h2>
         <a href="../../">html_dsl</a>
         <span id="project-version">
-          <span> - v1.0.0 </span>
+          <span> - v1.1.0 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v1.0.0";
+            const currentVersion = "v1.1.0";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -221,13 +221,17 @@
         
           <li><a href="../../html_dsl.html">html_dsl</a></li>
         
-          <li><a href="../../html_dsl/types/class.html">html_dsl/types/class</a></li>
+          <li><a href="../../html_dsl/types/attribute.html">html_dsl/types/attribute</a></li>
         
           <li><a href="../../html_dsl/types/html.html">html_dsl/types/html</a></li>
         
-          <li><a href="../../html_dsl/types/id.html">html_dsl/types/id</a></li>
+          <li><a href="../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/input.html">html_dsl/types/input</a></li>
+          <li><a href="../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+        
+          <li><a href="../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
+        
+          <li><a href="../../html_dsl/types/html/lists.html">html_dsl/types/html/lists</a></li>
         
           <li><a href="../../html_dsl/utils/check.html">html_dsl/utils/check</a></li>
         
@@ -276,7 +280,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.0.0/src/html_dsl/utils/check.gleam#L4-L4">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/utils/check.gleam#L5-L5">
         &lt;/&gt;
       </a>
       
@@ -284,7 +288,8 @@
 
     <pre><code class="hljs gleam">pub fn illegal_string_check(str: String) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"></div>
+    <div class="rendered-markdown"><p>Checks a given string for illegal characters and replaces them with their HTML entity</p>
+</div>
   </div>
   
 </section>
@@ -364,9 +369,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712519722"></script>
+    <script src="../../js/index.js?v=1712739397"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712519722"></script>
+    <script src="../../search-data.js?v=1712739397"></script>
   </body>
 </html>
