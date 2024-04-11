@@ -227,7 +227,7 @@
         
           <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../../html_dsl/types/html/form/select.html">html_dsl/types/html/form/select</a></li>
         
           <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
@@ -255,6 +255,8 @@
   
   <li><a href="#charset">charset</a></li>
   
+  <li><a href="#end">end</a></li>
+  
   <li><a href="#head">head</a></li>
   
   <li><a href="#head_to_string">head_to_string</a></li>
@@ -262,6 +264,8 @@
   <li><a href="#link">link</a></li>
   
   <li><a href="#meta">meta</a></li>
+  
+  <li><a href="#resolve">resolve</a></li>
   
   <li><a href="#script">script</a></li>
   
@@ -298,7 +302,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L5-L5">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L6-L6">
         &lt;/&gt;
       </a>
       
@@ -332,7 +336,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L89-L89">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L107-L107">
         &lt;/&gt;
       </a>
       
@@ -350,13 +354,37 @@
   
   <div class="member">
     <div class="member-name">
+      <h2 id="end">
+        <a href="#end">
+          end
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L30-L30">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn end(root: Head) -&gt; Head</code></pre>
+    
+    <div class="rendered-markdown"><p>Ends a head context</p>
+<ul>
+<li><code>@param</code> root: The head to end</li>
+<li><code>@returns</code>: A Head</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="head">
         <a href="#head">
           head
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L12-L12">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L23-L23">
         &lt;/&gt;
       </a>
       
@@ -379,7 +407,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L19-L19">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L37-L37">
         &lt;/&gt;
       </a>
       
@@ -403,7 +431,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L39-L44">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L57-L62">
         &lt;/&gt;
       </a>
       
@@ -413,7 +441,7 @@
   root: Head,
   rel: String,
   href: String,
-  attributes: Attribute,
+  attributes: Option(Attribute),
 ) -&gt; Head</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a link element</p>
@@ -434,7 +462,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L74-L74">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L92-L92">
         &lt;/&gt;
       </a>
       
@@ -453,13 +481,37 @@
   
   <div class="member">
     <div class="member-name">
+      <h2 id="resolve">
+        <a href="#resolve">
+          resolve
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L14-L14">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn resolve(head: Head) -&gt; Result(String, String)</code></pre>
+    
+    <div class="rendered-markdown"><p>This function resolves a Head to a string or an error</p>
+<ul>
+<li><code>@param</code> head: The head to resolve</li>
+<li><code>@returns</code>: A Result</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="script">
         <a href="#script">
           script
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L29-L29">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L47-L47">
         &lt;/&gt;
       </a>
       
@@ -483,7 +535,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L63-L63">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L81-L81">
         &lt;/&gt;
       </a>
       
@@ -507,7 +559,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L97-L97">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/head.gleam#L115-L115">
         &lt;/&gt;
       </a>
       
@@ -600,9 +652,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../../js/index.js?v=1712739397"></script>
+    <script src="../../../js/index.js?v=1712816020"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../../search-data.js?v=1712739397"></script>
+    <script src="../../../search-data.js?v=1712816020"></script>
   </body>
-</html>
+</html>

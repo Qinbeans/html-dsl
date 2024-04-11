@@ -227,7 +227,7 @@
         
           <li><a href="../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../html_dsl/types/html/form/select.html">html_dsl/types/html/form/select</a></li>
         
           <li><a href="../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
@@ -241,6 +241,8 @@
 
 <h2>Types</h2>
 <ul>
+  
+  <li><a href="#Body">Body</a></li>
   
   <li><a href="#Html">Html</a></li>
   
@@ -261,6 +263,8 @@
   
   <li><a href="#body">body</a></li>
   
+  <li><a href="#body_to_string">body_to_string</a></li>
+  
   <li><a href="#br">br</a></li>
   
   <li><a href="#button">button</a></li>
@@ -270,6 +274,8 @@
   <li><a href="#div">div</a></li>
   
   <li><a href="#footer">footer</a></li>
+  
+  <li><a href="#force">force</a></li>
   
   <li><a href="#h1">h1</a></li>
   
@@ -328,13 +334,35 @@
   
   <div class="member">
     <div class="member-name">
+      <h2 id="Body">
+        <a href="#Body">
+          Body
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L17-L17">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+    
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"><p>Exists to prevent strings from being passed to engines</p>
+</div>
+      <pre><code class="hljs gleam">pub opaque type Body</code></pre>
+      
+    </div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="Html">
         <a href="#Html">
           Html
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L8-L8">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L10-L10">
         &lt;/&gt;
       </a>
       
@@ -369,24 +397,20 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L103-L109">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L81-L85">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn a(
-  id id: String,
-  class class: String,
   href href: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an anchor element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> href: The href of the anchor</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
@@ -403,25 +427,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L539-L544">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L315-L318">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn article(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an article element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -435,25 +455,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L572-L577">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L328-L331">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn aside(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an aside element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -467,27 +483,43 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L359-L364">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L203-L206">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn body(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
-) -&gt; String</code></pre>
+) -&gt; Body</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents the body of an HTML document</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="body_to_string">
+        <a href="#body_to_string">
+          body_to_string
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L22-L22">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn body_to_string(body: Body) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>Converts body to string</p>
 </div>
   </div>
   
@@ -499,7 +531,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L343-L343">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L189-L189">
         &lt;/&gt;
       </a>
       
@@ -522,25 +554,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L632-L637">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L353-L356">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn button(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a button element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -554,7 +582,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L403-L403">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L257-L257">
         &lt;/&gt;
       </a>
       
@@ -578,23 +606,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L37-L42">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L51-L54">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn div(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a div element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -610,26 +634,46 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L446-L451">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L277-L280">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn footer(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a footer element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="force">
+        <a href="#force">
+          force
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L214-L214">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn force(result: Result(Html, String)) -&gt; Html</code></pre>
+    
+    <div class="rendered-markdown"><p>This force resolves a <code>Result(Html, String)</code> to <code>Html</code></p>
+<ul>
+<li><code>@param</code> result: The result to resolve</li>
+<li><code>@returns</code>: The resolved <code>Html</code></li>
 </ul>
 </div>
   </div>
@@ -642,23 +686,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L139-L144">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L95-L98">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h1(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h1 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -674,23 +714,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L165-L170">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L107-L110">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h2(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h2 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -706,23 +742,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L191-L196">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L119-L122">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h3(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h3 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -738,23 +770,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L217-L222">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L131-L134">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h4(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h4 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -770,23 +798,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L243-L248">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L143-L146">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h5(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h5 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -802,23 +826,19 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L269-L274">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L155-L158">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn h6(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an h6 element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
@@ -834,25 +854,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L413-L418">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L265-L268">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn header(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a header element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -866,7 +882,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L349-L349">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L195-L195">
         &lt;/&gt;
       </a>
       
@@ -889,7 +905,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L384-L384">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L228-L232">
         &lt;/&gt;
       </a>
       
@@ -898,8 +914,8 @@
     <pre><code class="hljs gleam">pub fn html(
   lang lang: String,
   head head: Head,
-  body body: String,
-) -&gt; Html</code></pre>
+  body body: Body,
+) -&gt; Result(Html, String)</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an HTML document</p>
 <ul>
@@ -918,7 +934,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L24-L24">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L39-L39">
         &lt;/&gt;
       </a>
       
@@ -938,24 +954,20 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L65-L71">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L65-L69">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn img(
-  id id: String,
-  class class: String,
   src src: String,
   alt alt: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an image element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> src: The source of the image</li>
 <li><code>@param</code> alt: The alt text of the image</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
@@ -972,7 +984,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L16-L16">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L31-L31">
         &lt;/&gt;
       </a>
       
@@ -996,25 +1008,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L605-L610">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L340-L343">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn main(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a main element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -1028,25 +1036,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L479-L484">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L290-L293">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn nav(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a nav element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -1060,25 +1064,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L295-L300">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L167-L170">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn p(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a paragraph element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> child: The child of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -1092,25 +1092,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L506-L511">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L302-L305">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn section(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a section element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -1124,25 +1120,21 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L321-L326">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html.gleam#L179-L182">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn span(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   inner inner: String,
 ) -&gt; String</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a span element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> child: The child of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -1225,9 +1217,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712739397"></script>
+    <script src="../../js/index.js?v=1712816020"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712739397"></script>
+    <script src="../../search-data.js?v=1712816020"></script>
   </body>
-</html>
+</html>

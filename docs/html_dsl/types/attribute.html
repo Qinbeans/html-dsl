@@ -227,7 +227,7 @@
         
           <li><a href="../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../html_dsl/types/html/form/select.html">html_dsl/types/html/form/select</a></li>
         
           <li><a href="../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
@@ -255,9 +255,13 @@
   
   <li><a href="#add">add</a></li>
   
-  <li><a href="#attribute">attribute</a></li>
-  
   <li><a href="#attribute_to_string">attribute_to_string</a></li>
+  
+  <li><a href="#class">class</a></li>
+  
+  <li><a href="#id">id</a></li>
+  
+  <li><a href="#new">new</a></li>
   
 </ul>
 
@@ -288,7 +292,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L4-L4">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L5-L5">
         &lt;/&gt;
       </a>
       
@@ -322,47 +326,24 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L20-L20">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L37-L41">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn add(
-  root: Attribute,
+  root: Option(Attribute),
   key: String,
   value: String,
-) -&gt; Attribute</code></pre>
+) -&gt; Option(Attribute)</code></pre>
     
-    <div class="rendered-markdown"><p>This function is used to create a ListItem</p>
+    <div class="rendered-markdown"><p>Adds an attribute to an attribute</p>
 <ul>
 <li><code>@param</code> root: The root attribute</li>
 <li><code>@param</code> key: The key of the attribute</li>
 <li><code>@param</code> value: The value of the attribute</li>
-<li><code>@returns</code>: A ListItem</li>
-</ul>
-</div>
-  </div>
-  
-  <div class="member">
-    <div class="member-name">
-      <h2 id="attribute">
-        <a href="#attribute">
-          attribute
-        </a>
-      </h2>
-      
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L11-L11">
-        &lt;/&gt;
-      </a>
-      
-    </div>
-
-    <pre><code class="hljs gleam">pub fn attribute() -&gt; Attribute</code></pre>
-    
-    <div class="rendered-markdown"><p>This function is used to create a ListItem</p>
-<ul>
-<li><code>@returns</code>: A ListItem</li>
+<li><code>@returns</code>: An Attribute</li>
 </ul>
 </div>
   </div>
@@ -375,18 +356,99 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L37-L37">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L58-L58">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn attribute_to_string(attribute: Attribute) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn attribute_to_string(
+  attribute: Option(Attribute),
+) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"><p>This function is used to create a ListItem</p>
+    <div class="rendered-markdown"><p>This function is used to convert an attribute to a string</p>
 <ul>
-<li><code>@param</code> content: The content of the list item</li>
-<li><code>@returns</code>: A ListItem</li>
+<li><code>@param</code> attribute: The attribute to convert</li>
+<li><code>@returns</code>: String</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="class">
+        <a href="#class">
+          class
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L20-L20">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn class(
+  root: Option(Attribute),
+  classes: String,
+) -&gt; Option(Attribute)</code></pre>
+    
+    <div class="rendered-markdown"><p>Shortcut for creating a class attribute</p>
+<ul>
+<li><code>@param</code> root: The root attribute</li>
+<li><code>@param</code> classes: The classes to add</li>
+<li><code>@returns</code>: An Attribute</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="id">
+        <a href="#id">
+          id
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L28-L28">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn id(
+  root: Option(Attribute),
+  id: String,
+) -&gt; Option(Attribute)</code></pre>
+    
+    <div class="rendered-markdown"><p>Shortcut for creating a id attribute</p>
+<ul>
+<li><code>@param</code> root: The root attribute</li>
+<li><code>@param</code> id: The id to add</li>
+<li><code>@returns</code>: An Attribute</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="new">
+        <a href="#new">
+          new
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/attribute.gleam#L12-L12">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn new() -&gt; Option(Attribute)</code></pre>
+    
+    <div class="rendered-markdown"><p>This function is used to create an attribute</p>
+<ul>
+<li><code>@returns</code>: An Attribute</li>
 </ul>
 </div>
   </div>
@@ -468,9 +530,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../js/index.js?v=1712739397"></script>
+    <script src="../../js/index.js?v=1712816020"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1712739397"></script>
+    <script src="../../search-data.js?v=1712816020"></script>
   </body>
-</html>
+</html>
