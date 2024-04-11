@@ -245,64 +245,82 @@
 <h1>html_dsl</h1>
 <p><a href="https://qinbeans.github.io/html-dsl/"><img src="https://img.shields.io/badge/hex-docs-ffaff3" alt="Hex Docs" /></a>
 <a href="https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml"><img src="https://github.com/Qinbeans/html-dsl/actions/workflows/test.yml/badge.svg" alt="test" /></a></p>
-<p>A fun way to create HTML in Gleam.</p>
+<p>A fun, modular, and simple way to create HTML in Gleam.</p>
 <h2>Premise</h2>
-<p>I wanted a simple framework to build HTML and I saw a way forward with strings.</p>
-<p>I thought that Gleam had a very unique type system in which I could wrap strings around a named type like <code>Html</code> or <code>Head</code>. The way I implemented it does restrict general reactivity through Gleam itself, but I never thought making this a standalone framework as an option. The idea was to combine this with existing frontend libraries like HTMX to add that touch of reactivity.</p>
+<p>I wanted a simple framework to build HTML and I saw a way forward with strings. Think of this as building a one way buffer to generate HTML. I wanted to avoid using a lot of intermediate steps like using a list of tuples or a list of records. I wanted to get straight to the point and build the HTML string as I go along. This is a very simple way to build HTML and I wanted to keep it that way.</p>
+<p>I thought that Gleam had a very unique type system in which I could wrap strings around a named type like <code>Html</code> or <code>Head</code>. The way I implemented it does restrict general reactivity through Gleam itself, but I never thought making this a standalone framework as an option. The idea was to combine this with existing frontend libraries like HTMX to add that touch of reactivity. The backend/DSL would choose what to generate based on requests and headers for a more dynamic experience.</p>
 <h2>Going forward</h2>
-<p>I’m not sure what else to expand except implementing more existing HTML elements.</p>
+<p>I’m refining the way the elements are built as well as adding more elements to the DSL. I add deeper documentation based one what I think could cause problems. If you find something difficult, feel free to reach out!</p>
 <h2>Installation</h2>
 <pre><code class="language-sh">gleam add html_dsl
 </code></pre>
 <h2>Examples</h2>
-<pre><code class="language-gleam">import html_dsl/types/html.{body, button, h1, header, html}
-import html_dsl/types/html/head.{charset, head, meta, title}
-import html_dsl/types/html/lists.{li, ul}
-import html_dsl/types/html/form.{Submit, Text, form, input, label}
-import html_dsl/types/attribute.{attribute}
-// If you're familiar with HTML, this might seem pretty standalone
-fn main() {
- let my_doc = html(
+<pre><code class="language-gleam">import gleam/io
+import html_dsl/types/html.{body, button, h1, header, html, nav}
+import html_dsl/types/html/head.{charset, head, meta, script, title}
+import html_dsl/types/html/lists.{ul}
+import html_dsl/types/html/form.{Submit, Text, element, form, input, label}
+import html_dsl/types/attribute.{class, id}
+import html_dsl/types/html/form/select.{select}
+import gleam/option.{None}
+
+/// Example of creating an HTML string
+pub fn main() {
+ html(
    lang: &quot;en&quot;,
    head: head()
      |&gt; title(&quot;Hello, Gleam!&quot;)
      |&gt; charset(&quot;UTF-8&quot;)
-     |&gt; meta(&quot;description&quot;, &quot;A Gleam program that generates HTML.&quot;),
+     |&gt; meta(&quot;viewport&quot;, &quot;width=device-width, initial-scale=1.0&quot;)
+     |&gt; meta(&quot;description&quot;, &quot;A Gleam program that generates HTML.&quot;)
+     |&gt; script(&quot;https://cdn.tailwindcss.com&quot;)
+     |&gt; head.end(),
    body: body(
-     id: &quot;main-content&quot;,
-     class: &quot;grid&quot;,
-     attributes: attribute(),
-     inner: header(&quot;&quot;, &quot;&quot;, attribute(), &quot;&quot;)
-       &lt;&gt; case False {
-         True -&gt; h1(&quot;&quot;, &quot;&quot;, attribute(), &quot;True&quot;)
-         False -&gt; h1(&quot;&quot;, &quot;&quot;, attribute(), &quot;False&quot;)
-       }
-       &lt;&gt; ul(
-         &quot;&quot;,
-         &quot;&quot;,
-         attribute(),
-         li()
-           |&gt; lists.add(&quot;&quot;, &quot;&quot;, attribute(), &quot;This is a list item&quot;)
-           |&gt; lists.add(&quot;&quot;, &quot;&quot;, attribute(), &quot;This is another list item&quot;),
+     attributes: id(None, &quot;main-content&quot;)
+       |&gt; class(&quot;bg-black text-white&quot;),
+     inner: header(
+         class(None, &quot;grid place-content-center&quot;),
+         nav(None, &quot;Hello&quot;),
        )
+       &lt;&gt; case False {
+         True -&gt; h1(None, &quot;True&quot;)
+         False -&gt; h1(None, &quot;False&quot;)
+       }
+       &lt;&gt; ul(None)
+       |&gt; lists.add(
+         attribute.new()
+           |&gt; class(&quot;text-blue-400&quot;),
+         &quot;This is a list item&quot;,
+       )
+       |&gt; lists.add(None, &quot;This is another list item&quot;)
+       |&gt; lists.end()
        &lt;&gt; form(
+         class(None, &quot;flex&quot;)
+         |&gt; attribute.add(&quot;method&quot;, &quot;GET&quot;)
+         |&gt; attribute.add(&quot;action&quot;, &quot;#&quot;),
+       )
+       |&gt; label(None, &quot;Name:&quot;)
+       |&gt; input(None, Text, &quot;name&quot;)
+       |&gt; input(None, Submit, &quot;submit&quot;)
+       |&gt; element(button(None, &quot;Click me!&quot;))
+       |&gt; select(None)
+       |&gt; select.add(
+         attribute.add(None, &quot;selected&quot;, &quot;selected&quot;)
+           |&gt; attribute.add(&quot;disabled&quot;, &quot;disabled&quot;),
          &quot;&quot;,
-         &quot;&quot;,
-         attribute(),
-         form.init()
-           |&gt; label(&quot;&quot;, &quot;&quot;, attribute(), &quot;Name:&quot;)
-           |&gt; input(&quot;&quot;, &quot;&quot;, attribute(), Text, &quot;name&quot;)
-           |&gt; input(&quot;&quot;, &quot;&quot;, attribute(), Submit, &quot;submit&quot;)
-           |&gt; form.element(button(&quot;&quot;, &quot;&quot;, attribute(), &quot;Click me!&quot;)),
-       ),
+         &quot;--Please choose an option--&quot;,
+       )
+       |&gt; select.add(None, value: &quot;something&quot;, label: &quot;Something&quot;)
+       |&gt; select.add(None, value: &quot;else&quot;, label: &quot;Else&quot;)
+       |&gt; select.end()
+       |&gt; form.end(),
    ),
  )
- // We can access the document as a string
- let _ = html.html_to_string(my_doc)
- // or through the pipe operator
- let _ = my_doc
+ |&gt; html.force()
  |&gt; html.html_to_string()
+ |&gt; io.println()
 }
+
 </code></pre>
 <p>So why use strings to build each element? Ultimately everything is parsed into a string so I wanted to get straight to the point with little to no intermediate step. Don’t get me wrong, I still have intermediate’s here and there, but that’s more for explicitness. It prevents bad <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> from being written.</p>
 <h2>Development</h2>
@@ -388,9 +406,9 @@ fn main() {
       hljs.highlightAll();
     </script>
     <script src="./js/lunr.min.js?v=1.0.0"></script>    
-    <script src="./js/index.js?v=1712814120"></script>
+    <script src="./js/index.js?v=1712816020"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="./search-data.js?v=1712814120"></script>
+    <script src="./search-data.js?v=1712816020"></script>
   </body>
 </html>
