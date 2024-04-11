@@ -1,16 +1,34 @@
 import html_dsl/utils/check.{illegal_string_check}
 import html_dsl/types/attribute.{type Attribute, attribute_to_string}
+import gleam/option.{type Option}
 
 /// Head is a type that represents the head of an HTML document
 pub opaque type Head {
   Head(String)
-  Nil
+  End(String)
+}
+
+/// This function resolves a Head to a string or an error
+///  - `@param` head: The head to resolve
+///  - `@returns`: A Result
+pub fn resolve(head: Head) -> Result(String, String) {
+  case head {
+    Head(s) -> Error(s)
+    End(s) -> Ok(s)
+  }
 }
 
 /// Starts a head context
 /// - `@returns`: A Head
 pub fn head() -> Head {
-  Nil
+  Head("<head>")
+}
+
+/// Ends a head context
+/// - `@param` root: The head to end
+/// - `@returns`: A Head
+pub fn end(root: Head) -> Head {
+  End(head_to_string(root) <> "</head>")
 }
 
 /// This function converts a Head to a string
@@ -19,7 +37,7 @@ pub fn head() -> Head {
 pub fn head_to_string(head: Head) -> String {
   case head {
     Head(s) -> s
-    Nil -> ""
+    End(_) -> panic("Cannot end an End")
   }
 }
 
@@ -40,7 +58,7 @@ pub fn link(
   root: Head,
   rel: String,
   href: String,
-  attributes: Attribute,
+  attributes: Option(Attribute),
 ) -> Head {
   let att_str = attribute_to_string(attributes)
   let rel = illegal_string_check(rel)

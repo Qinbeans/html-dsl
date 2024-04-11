@@ -227,7 +227,7 @@
         
           <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../../html_dsl/types/html/form/select.html">html_dsl/types/html/form/select</a></li>
         
           <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
@@ -257,9 +257,9 @@
   
   <li><a href="#element">element</a></li>
   
-  <li><a href="#form">form</a></li>
+  <li><a href="#end">end</a></li>
   
-  <li><a href="#init">init</a></li>
+  <li><a href="#form">form</a></li>
   
   <li><a href="#input">input</a></li>
   
@@ -298,7 +298,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L31-L31">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L32-L32">
         &lt;/&gt;
       </a>
       
@@ -320,7 +320,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L5-L5">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L6-L6">
         &lt;/&gt;
       </a>
       
@@ -670,7 +670,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L89-L89">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L93-L93">
         &lt;/&gt;
       </a>
       
@@ -681,11 +681,35 @@
   content content: String,
 ) -&gt; Input</code></pre>
     
-    <div class="rendered-markdown"><p>Element is part of an opaque type, so it can’t be accessed directly</p>
-<p>This function is used to create an Element</p>
+    <div class="rendered-markdown"><p>This function is used to create an Element</p>
 <ul>
+<li><code>@param</code> root: The root of the element</li>
 <li><code>@param</code> content: The content of the element</li>
 <li><code>@returns</code>: An Element</li>
+</ul>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="end">
+        <a href="#end">
+          end
+        </a>
+      </h2>
+      
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L85-L85">
+        &lt;/&gt;
+      </a>
+      
+    </div>
+
+    <pre><code class="hljs gleam">pub fn end(root: Input) -&gt; String</code></pre>
+    
+    <div class="rendered-markdown"><p>Ends form context</p>
+<ul>
+<li><code>@param</code> root: The root of the form</li>
+<li><code>@returns</code>: The string representation of the form</li>
 </ul>
 </div>
   </div>
@@ -698,47 +722,20 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L184-L189">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L143-L143">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn form(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
-  inner inner: Input,
-) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn form(attributes attributes: Option(Attribute)) -&gt; Input</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a form element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: The children of the element</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
-  </div>
-  
-  <div class="member">
-    <div class="member-name">
-      <h2 id="init">
-        <a href="#init">
-          init
-        </a>
-      </h2>
-      
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L80-L80">
-        &lt;/&gt;
-      </a>
-      
-    </div>
-
-    <pre><code class="hljs gleam">pub fn init() -&gt; Input</code></pre>
-    
-    <div class="rendered-markdown"></div>
   </div>
   
   <div class="member">
@@ -749,7 +746,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L100-L107">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L103-L108">
         &lt;/&gt;
       </a>
       
@@ -757,17 +754,14 @@
 
     <pre><code class="hljs gleam">pub fn input(
   root root: Input,
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   input_type input_type: InputType,
   placeholder placeholder: String,
 ) -&gt; Input</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an input element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> root: The root of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
 <li><code>@param</code> input_type: The type of the input</li>
 <li><code>@param</code> placeholder: The placeholder of the input</li>
@@ -784,7 +778,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L73-L73">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L76-L76">
         &lt;/&gt;
       </a>
       
@@ -792,7 +786,12 @@
 
     <pre><code class="hljs gleam">pub fn input_to_string(input: Input) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"></div>
+    <div class="rendered-markdown"><p>This function converts an Input to a string</p>
+<ul>
+<li><code>@param</code> input: The input to convert</li>
+<li><code>@returns</code>: The string representation of the input</li>
+</ul>
+</div>
   </div>
   
   <div class="member">
@@ -831,7 +830,7 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L147-L153">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/form.gleam#L128-L132">
         &lt;/&gt;
       </a>
       
@@ -839,18 +838,15 @@
 
     <pre><code class="hljs gleam">pub fn label(
   root root: Input,
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  attributes attributes: Option(Attribute),
   innner inner: String,
 ) -&gt; Input</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a label element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> root: The root of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> child: The child of the element</li>
+<li><code>@param</code> inner: The child of the element</li>
 <li><code>@returns</code>: An Input</li>
 </ul>
 </div>
@@ -933,9 +929,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../../js/index.js?v=1712739397"></script>
+    <script src="../../../js/index.js?v=1712814120"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../../search-data.js?v=1712739397"></script>
+    <script src="../../../search-data.js?v=1712814120"></script>
   </body>
-</html>
+</html>

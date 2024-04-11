@@ -227,7 +227,7 @@
         
           <li><a href="../../../html_dsl/types/html/form.html">html_dsl/types/html/form</a></li>
         
-          <li><a href="../../../html_dsl/types/html/form/selection.html">html_dsl/types/html/form/selection</a></li>
+          <li><a href="../../../html_dsl/types/html/form/select.html">html_dsl/types/html/form/select</a></li>
         
           <li><a href="../../../html_dsl/types/html/head.html">html_dsl/types/html/head</a></li>
         
@@ -242,7 +242,7 @@
 <h2>Types</h2>
 <ul>
   
-  <li><a href="#ListItem">ListItem</a></li>
+  <li><a href="#List">List</a></li>
   
 </ul>
 
@@ -255,7 +255,7 @@
   
   <li><a href="#add">add</a></li>
   
-  <li><a href="#li">li</a></li>
+  <li><a href="#end">end</a></li>
   
   <li><a href="#li_to_string">li_to_string</a></li>
   
@@ -286,9 +286,9 @@
   
   <div class="member">
     <div class="member-name">
-      <h2 id="ListItem">
-        <a href="#ListItem">
-          ListItem
+      <h2 id="List">
+        <a href="#List">
+          List
         </a>
       </h2>
       
@@ -301,7 +301,7 @@
     <div class="custom-type-constructors">
       <div class="rendered-markdown"><p>Exists to prevent strings from being passed to ul and ol</p>
 </div>
-      <pre><code class="hljs gleam">pub opaque type ListItem</code></pre>
+      <pre><code class="hljs gleam">pub opaque type List</code></pre>
       
     </div>
   </div>
@@ -326,26 +326,23 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L27-L33">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L35-L39">
         &lt;/&gt;
       </a>
       
     </div>
 
     <pre><code class="hljs gleam">pub fn add(
-  root root: ListItem,
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
+  root: List,
+  attributes attributes: Option(Attribute),
   inner inner: String,
-) -&gt; ListItem</code></pre>
+) -&gt; List</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents a list item element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
+<li><code>@param</code> root: The list element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> child: The child of the element</li>
+<li><code>@param</code> inner: The inner content of the element</li>
 <li><code>@returns</code>: A ListItem</li>
 </ul>
 </div>
@@ -353,21 +350,26 @@
   
   <div class="member">
     <div class="member-name">
-      <h2 id="li">
-        <a href="#li">
-          li
+      <h2 id="end">
+        <a href="#end">
+          end
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L17-L17">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L23-L23">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn li() -&gt; ListItem</code></pre>
+    <pre><code class="hljs gleam">pub fn end(li: List) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"></div>
+    <div class="rendered-markdown"><p>Closes the element</p>
+<ul>
+<li><code>@param</code> li: The list element</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
   </div>
   
   <div class="member">
@@ -378,15 +380,20 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L10-L10">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L13-L13">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn li_to_string(li: ListItem) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn li_to_string(li: List) -&gt; String</code></pre>
     
-    <div class="rendered-markdown"></div>
+    <div class="rendered-markdown"><p>This creates a string that represents a list element</p>
+<ul>
+<li><code>@param</code> li: The list element</li>
+<li><code>@returns</code>: A string that represents the HTML element</li>
+</ul>
+</div>
   </div>
   
   <div class="member">
@@ -397,25 +404,17 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L82-L87">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L60-L60">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn ol(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
-  inner inner: ListItem,
-) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn ol(attributes attributes: Option(Attribute)) -&gt; List</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an ordered list element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: a list of ListItems</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -429,25 +428,17 @@
         </a>
       </h2>
       
-      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L55-L60">
+      <a class="member-source" alt="View Source" title="View Source" href="https://github.com/Qinbeans/html-dsl/blob/v1.1.0/src/html_dsl/types/html/lists.gleam#L52-L52">
         &lt;/&gt;
       </a>
       
     </div>
 
-    <pre><code class="hljs gleam">pub fn ul(
-  id id: String,
-  class class: String,
-  attributes attributes: Attribute,
-  inner inner: ListItem,
-) -&gt; String</code></pre>
+    <pre><code class="hljs gleam">pub fn ul(attributes attributes: Option(Attribute)) -&gt; List</code></pre>
     
     <div class="rendered-markdown"><p>This creates a string that represents an unordered list element</p>
 <ul>
-<li><code>@param</code> id: The id of the element</li>
-<li><code>@param</code> class: The class of the element</li>
 <li><code>@param</code> attributes: The attributes of the element</li>
-<li><code>@param</code> children: a list of ListItems</li>
 <li><code>@returns</code>: A string that represents the HTML element</li>
 </ul>
 </div>
@@ -530,9 +521,9 @@
       hljs.highlightAll();
     </script>
     <script src="../../../js/lunr.min.js?v=1.0.0"></script>    
-    <script src="../../../js/index.js?v=1712739397"></script>
+    <script src="../../../js/index.js?v=1712814120"></script>
 
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../../search-data.js?v=1712739397"></script>
+    <script src="../../../search-data.js?v=1712814120"></script>
   </body>
-</html>
+</html>
