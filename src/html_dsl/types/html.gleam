@@ -1,8 +1,9 @@
-import html_dsl/types/attribute.{type Attribute, attribute_to_string}
-import html_dsl/types/html/head.{type Head}
-import html_dsl/utils/check.{illegal_string_check}
 import gleam/io
 import gleam/option.{type Option}
+import html_dsl/types/attribute.{type Attribute, attribute_to_string}
+import html_dsl/types/html/body.{type Body, body_to_string}
+import html_dsl/types/html/head.{type Head}
+import html_dsl/utils/check.{illegal_string_check}
 
 /// Exists to prevent strings from being passed to engines
 ///
@@ -11,18 +12,6 @@ pub opaque type Html {
   Html(String)
   Component(String)
   Nil
-}
-
-/// Exists to prevent strings from being passed to engines
-pub opaque type Body {
-  Body(String)
-}
-
-/// Converts body to string
-pub fn body_to_string(body: Body) -> String {
-  case body {
-    Body(content) -> content
-  }
 }
 
 /// Check Html enum
@@ -194,18 +183,6 @@ pub fn br() -> String {
 ///  - `@returns`: A string that represents the HTML element
 pub fn hr() -> String {
   "<hr>"
-}
-
-/// This creates a string that represents the body of an HTML document
-///  - `@param` attributes: The attributes of the element
-///  - `@param` inner: The child of the element
-///  - `@returns`: A string that represents the HTML element
-pub fn body(
-  attributes attributes: Option(Attribute),
-  inner inner: String,
-) -> Body {
-  let att_str = attribute_to_string(attributes)
-  Body("<body" <> att_str <> ">" <> inner <> "</body>")
 }
 
 /// This force resolves a `Result(Html, String)` to `Html`
